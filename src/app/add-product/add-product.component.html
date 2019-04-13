@@ -1,3 +1,275 @@
-<p>
-  add-product works!
-</p>
+<!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="../assets/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../assets/lib/bower_components/font-awesome/css/font-awesome.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../assets/lib/bower_components/Ionicons/css/ionicons.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../assets/lib/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../assets/lib/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../assets/lib/dist/css/skins/_all-skins.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
+  <div class="hold-transition skin-blue sidebar-mini" style="font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;">
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a [routerLink]="'/admin-user'" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>High</b>Five</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>High</b>Five</span>
+    </a>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="http://www.computerfixerpro.com/highfive/regularuser.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p> {{ username }}</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="active treeview">
+          <a [routerLink]="'/admin-user'">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="'/list-products'">
+            <i class="fa fa-th"></i> <span>Manage Products</span>
+          </a>
+	</li>
+         <li class="treeview">
+          <a [routerLink]="'/list-workload'">
+            <i class="fa fa-search"></i>
+            <span>Manage Stores</span>
+          </a>
+        </li>
+	<li>
+          <a [routerLink]="''" (click)="onLogout()">
+            <i class="fa fa-sign-out"></i> <span>Logout</span>
+          </a>
+	</li>
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Advanced Form Elements
+        <small>Preview</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/admin-user"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/list-products">Proudcts</a></li>
+        <li class="active">Add New Product</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- SELECT2 EXAMPLE -->
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">Add New Product</h3>
+
+          <div class="box-tools pull-right">
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+			<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="Name">Name:</label>
+
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                  </div>
+               
+                  <input type="text" formControlName="name" id="name">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form-group -->
+                <div class="form-group">
+                <label for="Price">Price:</label>
+
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <input type="text" formControlName="price" class="form-control" id="price" >
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form-group -->
+              
+            
+              <div class="form-group">
+                <label for="stocked_date">Stocked Date:</label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <input type="stocked_date" formControlName="stocked_date" class="form-control" id="stocked_date">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="box box-info">
+                    <div class="box-header">
+                      <h3 class="box-title">Geolocation Information</h3>
+                    </div>
+                    <div class="box-body">
+                        <fieldset formGroupName="geolocation">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>latitude</label>
+                              <input type="text" class="form-control" formControlName="latitude">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>longitude</label>
+                             <input type="text" class="form-control" formControlName="longitude">
+                            </div>
+                          </div>
+                        </fieldset>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="brand">Brand:</label>
+
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <input type="text" formControlName="brand" class="form-control" id="brand" >
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form-group -->
+              <div class="form-group">
+                <label for="store_id">store_id</label>
+                <input type="text" formControlName="store_id" class="form-control" id="brand" value="john">
+              </div>
+              <!-- /.form-group -->
+              <div class="form-group">
+                <label for="pictureFileName">pictureFileName:</label>
+
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <input type="text" formControlName="pictureFileName" class="form-control" id="pictureFileName" value="john">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <div class="form-group">
+                <label for="available">available:</label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <input type='checkbox' formControlName='available' id='store_id'>
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form-group -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+				<button class="btn btn-success">Add</button>
+  </form>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2018 High Five.</strong> All rights
+    reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+ <!-- jQuery 3 -->
+<script src="../assets/lib/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../assets/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../assets/lib/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../assets/lib/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<!-- script src="../resource/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../assets/lib/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<!-- script src="../resource/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<!-- script src="../resource/dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>

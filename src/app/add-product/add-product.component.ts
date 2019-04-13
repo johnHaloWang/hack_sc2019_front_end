@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl, ReactiveFormsModule } from "@angular/forms";
 import {ProductService} from "../service/product.service";
-import {StoreService} from "../service/Store.service";
+import {StoreService} from "../service/store.service";
 import {first} from "rxjs/operators";
 import {Router} from "@angular/router";
 import {Product} from "../model/product.model";
@@ -23,7 +23,10 @@ export class AddProductComponent implements OnInit {
   product: Product;
   stores: Store[];
   addForm: FormGroup;
-  lists = []
+  lists = [
+  			{value: 0, label: "testing"},
+  			{value: 1, label: "testing2"},
+  			];
   //username = "";
   ngOnInit() {
     //this.username = sessionStorage.getItem('username');
@@ -31,24 +34,35 @@ export class AddProductComponent implements OnInit {
   	.subscribe( data => {
         this.stores = data;
       });
-
+  	// var len = 3
+  	// for(var i = 0; i< len; i++){
+  	// 	let s = this.stores[i];
+  	// 	//this.lists.push({value: s._id, label: s.name});
+  	// }
+  	
 
     this.addForm = new FormGroup(
     {
          name: new FormControl(),
          address: new FormControl(),
-         city: new FormControl(),
-         zipcode: new FormControl(),
-         state: new FormControl(),
+         brand: new FormControl(),
+         price: new FormControl(),
+         store_id: new FormControl(),
+         stocked_date: new FormControl(),
+         available: new FormControl(),
          geolocation: new FormGroup({
                latitude: new FormControl(),
 	       	   longitude: new FormControl()
-          })
+          }),
+         pictureFileName: new FormControl(),
       })
+    //this.addForm.controls['name'].value = "testing";
   };
 
-  // convenience getter for easy access to form fields
-  get f() { return this.addForm.controls; }
+
+
+  // convenience getter for easy access to fom fields
+  // get f() { return this.addForm.controls; }r
 
   onSubmit(){
     this.submitted = true;
