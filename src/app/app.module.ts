@@ -17,6 +17,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { LoginComponent } from './login/login.component';
 import { ListStoresComponent } from './list-stores/list-stores.component';
 import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ProductDashboardComponent } from './product-dashboard/product-dashboard
     AddProductComponent,
     LoginComponent,
     ListStoresComponent,
-    ProductDashboardComponent
+    ProductDashboardComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

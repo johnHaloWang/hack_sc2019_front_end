@@ -67,8 +67,7 @@ export class EditProductComponent implements OnInit {
                     .subscribe(
                         
    			data => {
-                        console.log("we are here");
-                        console.log(data);
+
           		this.router.navigate(['list-products']);
                      }
                     );

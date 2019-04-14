@@ -25,6 +25,7 @@ export class ListProductsComponent implements OnInit {
       this.productService.deleteUser(product._id)
       .subscribe( data => {
         this.products = this.products.filter(u => u !== product);
+        this.router.navigate(['list-products']);
       })
 
   };

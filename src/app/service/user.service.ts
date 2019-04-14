@@ -20,6 +20,7 @@ export class UserService {
     constructor(private http: HttpClient) { }
 
     baseUrl: string = 'http://springapp4-dev.us-west-1.elasticbeanstalk.com:5000/api/user';
+    baseUrlRegister: string = 'http://springapp4-dev.us-west-1.elasticbeanstalk.com:5000/api/register';
     testfile: string;
     configUrl = 'assets/config.json';
   getUsers() {
@@ -163,8 +164,14 @@ export class UserService {
           }
 
        }  
+       const httpOptions2 = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Accept': 'application/json'
+      })
+    }
       
-    return this.http.post<User>(this.baseUrl + '/addUserToStore', body);
+    return this.http.post<User>(this.baseUrlRegister, body,httpOptions2);
   }
 
   
