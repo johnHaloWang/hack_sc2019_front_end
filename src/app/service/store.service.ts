@@ -24,7 +24,7 @@ export class StoreService {
     return this.http.get<Store[]>(this.baseUrl + '/list');
   }
 
-  getProductById(id: string){
+  getStoreById(id: string){
     return this.http.post<Store>(this.baseUrl + '/get', {_id: id}, httpOptions);
   }
 

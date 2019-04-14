@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { first } from "rxjs/operators";
 import { AuthenticationService   } from "../service/auth.service";
 import { UserService } from "../service/user.service";
+import { StoreService } from "../service/store.service";
 
 import { User } from "../model/user.model";
 import { Token } from "../model/token.model" 
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
   invalidLogin: boolean = false;
   token: string;
   user:User;
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthenticationService, private userService: UserService ) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthenticationService, private userService: UserService, private storeService: StoreService) { }
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.invalid) {
@@ -36,8 +37,8 @@ export class LoginComponent implements OnInit {
                 login => {
                     this.userService.getUserByUsername(this.loginForm.controls.username.value).subscribe(data =>{
                       
-                      
-                      sessionStorage.setItem("store_id", data.store_id);
+                      //this.storeService.getStoreById(data.store_id).subscribe()
+                      sessionStorage.setItem("userstore_id", data.store_id);
                       sessionStorage.setItem("user_id", data._id);
                       this.router.navigate(['product-dashboard']);
                     });

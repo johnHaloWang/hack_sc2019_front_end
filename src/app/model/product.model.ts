@@ -14,4 +14,5 @@ export class Product{
     pictureFileName: string;
     geolocation: Geolocation;
     creationTime: string
+    distance: number
 }

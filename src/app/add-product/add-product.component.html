@@ -48,22 +48,12 @@
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
-          <a [routerLink]="'/admin-user'">
+          <a [routerLink]="'//product-dashboard'">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -101,7 +91,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="/admin-user"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="/list-products">Proudcts</a></li>
+        <li><a href="/list-products">Products</a></li>
         <li class="active">Add New Product</li>
       </ol>
     </section>
@@ -123,14 +113,11 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="Name">Name:</label>
+                <label for="Name">Product Name:</label>
 
                 <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-user"></i>
-                  </div>
                
-                  <input type="text" formControlName="name" id="name">
+                  <input type="text" formControlName="name" class="form-control" id="name">
                 </div>
                 <!-- /.input group -->
               </div>
@@ -139,9 +126,6 @@
                 <label for="Price">Price:</label>
 
                 <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-user"></i>
-                  </div>
                   <input type="text" formControlName="price" class="form-control" id="price" >
                 </div>
                 <!-- /.input group -->
@@ -152,9 +136,6 @@
               <div class="form-group">
                 <label for="stocked_date">Stocked Date:</label>
                 <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-user"></i>
-                  </div>
                   <input type="stocked_date" formControlName="stocked_date" class="form-control" id="stocked_date">
                 </div>
               </div>
@@ -188,26 +169,20 @@
                 <label for="brand">Brand:</label>
 
                 <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-user"></i>
-                  </div>
                   <input type="text" formControlName="brand" class="form-control" id="brand" >
                 </div>
                 <!-- /.input group -->
               </div>
               <!-- /.form-group -->
-              <div class="form-group">
+<!--               <div class="form-group">
                 <label for="store_id">store_id</label>
                 <input type="text" formControlName="store_id" class="form-control" id="brand" value="john">
-              </div>
+              </div> -->
               <!-- /.form-group -->
               <div class="form-group">
                 <label for="pictureFileName">pictureFileName:</label>
 
                 <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-user"></i>
-                  </div>
                   <input type="text" formControlName="pictureFileName" class="form-control" id="pictureFileName" value="john">
                 </div>
                 <!-- /.input group -->
@@ -215,9 +190,6 @@
               <div class="form-group">
                 <label for="available">available:</label>
                 <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-user"></i>
-                  </div>
                   <input type='checkbox' formControlName='available' id='store_id'>
                 </div>
                 <!-- /.input group -->
