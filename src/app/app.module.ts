@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from "./service/product.service";
 import { StoreService } from "./service/store.service";
 import { UserService } from "./service/user.service";
+import { AuthenticationService } from "./service/auth.service";
+
 import { AddProductComponent } from './add-product/add-product.component';
 import { LoginComponent } from './login/login.component';
 import { ListStoresComponent } from './list-stores/list-stores.component';
@@ -36,6 +38,7 @@ import { ListStoresComponent } from './list-stores/list-stores.component';
   	ProductService,
     StoreService,
     UserService,
+    AuthenticationService,
   ],
   bootstrap: [AppComponent]
 })

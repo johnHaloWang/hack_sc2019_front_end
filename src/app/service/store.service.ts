@@ -61,7 +61,7 @@ export class StoreService {
     return this.http.post<Store>(this.baseUrl + '/update', body);
   }
 
-  deleteUser(id: string) {
+  deleteStore(id: string) {
     return this.http.post(this.baseUrl + '/delete', {_id: id }, httpOptions);
   }
 

@@ -22,6 +22,8 @@ export class AuthenticationService {
                     sessionStorage.setItem('username', username);
                     sessionStorage.setItem('password', password);
                     //sessionStorage.setItem("s", user);
+                }else{
+                  console.log("failed");
                 }
         }));
       }

@@ -6,7 +6,7 @@ import { AuthenticationService   } from "../service/auth.service";
 import { UserService } from "../service/user.service";
 
 import { User } from "../model/user.model";
-
+import { Token } from "../model/token.model" 
 
 @Component({
   selector: 'app-login',
@@ -21,42 +21,37 @@ export class LoginComponent implements OnInit {
   logouted:  boolean = false;
   invalidLogin: boolean = false;
   token: string;
+  user:User;
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthenticationService, private userService: UserService ) { }
-  user: User;
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.invalid) {
       return;
     }
 
-    // this.authService.login(this.loginForm.controls.username.value, 
-    //                       this.loginForm.controls.password.value)
-    //     .pipe(first())
-    //         .subscribe(
-    //             login => {
-                  
-    //                 this.userService.getUserById(login.userId)
-    //                     .subscribe( data => {
-    //                       sessionStorage.setItem('user_type', data.user_type.toString());
-			 //  sessionStorage.setItem('username', data.username.toString()); 
-    //     		   if(data.user_type  == 2 ) {
-    //                             this.router.navigate(['admin-user']);
-    //                        }else if(data.user_type  == 1 ) {
-    //                             this.router.navigate(['regular-user']);
-    //                        }else{
-    //                             this.router.navigate(['client-user']);
-    //                       }
-    //                   });
-    //             },
-    //             error => {
-    //                 this.invalidLogin = true;
-    //     });
- };
+    this.authService.login(this.loginForm.controls.username.value, 
+                          this.loginForm.controls.password.value)
+        .pipe(first())
+            .subscribe(
+                login => {
+                    this.userService.getUserByUsername(this.loginForm.controls.username.value).subscribe(data =>{
+                      
+                      
+                      sessionStorage.setItem("store_id", data.store_id);
+                      sessionStorage.setItem("user_id", data._id);
+                      this.router.navigate(['list-products']);
+                    });
+                    
+                },
+                error => {
+                    this.invalidLogin = true;
+        });
+   };
 
   onLogout(){
     this.logouted = true;
     this.authService.logout();
-    this.router.navigate(['login']);
+    //this.router.navigate(['login']);
     this.invalidLogin = false;
   }
   ngOnInit() {

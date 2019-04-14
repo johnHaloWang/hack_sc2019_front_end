@@ -30,6 +30,24 @@ export class UserService {
     return this.http.post<User>(this.baseUrl + '/get', {_id: id}, httpOptions);
   }
 
+  getUserByUsername(usernameInput: string){
+     let token = sessionStorage.getItem("accessToken");
+     const httpOptions2 = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Accept': 'application/json'
+      })
+    }
+    let body = {
+        username: usernameInput, 
+        password: "password",
+    }
+    return  this.http.post<User>(this.baseUrl + '/getUsername', body, httpOptions2);
+    
+      
+  }
+  
+
   updateUser(user: User){
     /*
     { 
