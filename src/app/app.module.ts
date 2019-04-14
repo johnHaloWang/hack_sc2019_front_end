@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { ListStoresComponent } from './list-stores/list-stores.component';
 import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
 import { RegisterComponent } from './register/register.component';
+import { EditStoreComponent } from './edit-store/edit-store.component';
 
 
 // map import
@@ -35,7 +36,8 @@ import {} from 'google-distance-matrix'
     LoginComponent,
     ListStoresComponent,
     ProductDashboardComponent,
-    RegisterComponent
+    RegisterComponent,
+    EditStoreComponent
   ],
   imports: [
     BrowserModule,
