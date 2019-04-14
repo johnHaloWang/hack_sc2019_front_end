@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ProductService } from "./service/product.service";
 import { Product } from "./model/product.model";
 import { Geolocation } from "./model/geolocation.model";
-import { Router } from "@angular/router";
+
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	constructor(private formBuilder: FormBuilder, private router: Router, private productService: ProductService){}
+	constructor(private formBuilder: FormBuilder, private productService: ProductService){}
   title = 'hackSCApp';
   locationChosen = false;
   showMultipleMarkers = false;
@@ -75,6 +75,7 @@ export class AppComponent {
   }
 
   onSubmit(){
+<<<<<<< HEAD
 	this.productService.listGeo2(this.currentLat,this.currentLong , this.searchForm.controls.result.value, 10.0, this.searchForm.controls.mph.value)
 	.subscribe( data =>
 		       { this.products = data; this.router.navigate(['home']);
@@ -96,6 +97,12 @@ export class AppComponent {
                    // this.showMultipleMarkers = true;
            });
 
+=======
+	// this.productService.listGeo2(this.currentLat,this.currentLong , this.searchForm.controls.result.value, 10.0, this.searchForm.controls.mph.value)
+	// .subscribe( data => 
+	// 	       { this.products = data; this.router.navigate(['home']);
+ //               });
+>>>>>>> df26ace3e79c202508654572451949c002cdf90b
 
   };
 

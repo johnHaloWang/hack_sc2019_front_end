@@ -18,10 +18,14 @@ import {Geolocation } from "../model/geolocation.model"
 export class ProductService {
   constructor(private http: HttpClient) { }
   baseUrl: string = 'http://springapp4-dev.us-west-1.elasticbeanstalk.com:5000/api/product';
+  storeURL: string = 'http://springapp4-dev.us-west-1.elasticbeanstalk.com:5000/api/store'; 
   //configUrl = 'assets/config.json';
 
   getProducts() {
-    return this.http.get<Product[]>(this.baseUrl + '/list');
+    // return this.http.get<Product[]>(this.baseUrl + '/list');
+    let ptrStoreID = sessionStorage.getItem('userstore_id');
+    console.log(ptrStoreID)
+    return this.http.post<Product[]>(this.storeURL + '/getProducts', { _id: ptrStoreID}, httpOptions);
   }
 
   getProductById(id: string){

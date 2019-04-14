@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { ListStoresComponent } from './list-stores/list-stores.component';
 import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
 import { RegisterComponent } from './register/register.component';
+import { EditStoreComponent } from './edit-store/edit-store.component';
 
 
 // map import
@@ -37,7 +38,11 @@ import { SearchComponent } from './search/search.component'
     ListStoresComponent,
     ProductDashboardComponent,
     RegisterComponent,
+<<<<<<< HEAD
     SearchComponent
+=======
+    EditStoreComponent
+>>>>>>> df26ace3e79c202508654572451949c002cdf90b
   ],
   imports: [
     BrowserModule,
