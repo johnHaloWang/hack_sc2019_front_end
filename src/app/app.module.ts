@@ -16,6 +16,7 @@ import { AuthenticationService } from "./service/auth.service";
 import { AddProductComponent } from './add-product/add-product.component';
 import { LoginComponent } from './login/login.component';
 import { ListStoresComponent } from './list-stores/list-stores.component';
+import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ListStoresComponent } from './list-stores/list-stores.component';
     EditProductComponent,
     AddProductComponent,
     LoginComponent,
-    ListStoresComponent
+    ListStoresComponent,
+    ProductDashboardComponent
   ],
   imports: [
     BrowserModule,

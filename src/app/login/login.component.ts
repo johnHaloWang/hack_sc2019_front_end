@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
                       
                       sessionStorage.setItem("store_id", data.store_id);
                       sessionStorage.setItem("user_id", data._id);
-                      this.router.navigate(['list-products']);
+                      this.router.navigate(['product-dashboard']);
                     });
                     
                 },
