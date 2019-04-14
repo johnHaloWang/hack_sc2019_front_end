@@ -20,6 +20,12 @@ import { ProductDashboardComponent } from './product-dashboard/product-dashboard
 import { RegisterComponent } from './register/register.component';
 
 
+// map import
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';   // agm-direction
+import {} from 'googlemaps';
+import {} from 'google-distance-matrix' 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +43,12 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBxTOS3n58ZQtjnV35n4q-oxgqXkFV0MBI',
+      // apiKey: 'AIzaSyDf-yIqxErTkbWzKhLox7nAANnrfDIY190&libraries',
+      libraries: ['geometry']
+    }),
+    AgmDirectionModule,
   ],
   providers: [
   	ProductService,

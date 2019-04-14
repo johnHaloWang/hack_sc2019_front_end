@@ -74,17 +74,53 @@ export class ProductService {
     return this.http.post<Product>(this.baseUrl + '/add', body);
   }
 
-  listGeo(geolocation: Geolocation, nameInput: string, radiusInput: number, mpgInput: number){
+  // listGeo(geolocation: Geolocation, nameInput: string, radiusInput: number, mpgInput: number){
+  //   let body = {
+  //       name: nameInput, 
+  //       radius: radiusInput,
+  //       mpg: mpgInput,
+  //       geolocation: {
+  //             latitude: geolocation.latitude,
+  //           longitude: geolocation.longitude
+  //       }
+  //   }
+
+  //   const httpOptions2 = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type':  'application/json',
+  //       'Accept': 'application/json'
+  //     })
+  //   }
+
+    
+  //   return this.http.post<Product[]>(this.baseUrl + '/listGeo', body, httpOptions2);
+  // }
+
+  listGeo2(la:number, lo:number, nameInput: string, radiusInput: number, mpgInput: number){
+    
     let body = {
         name: nameInput, 
         radius: radiusInput,
         mpg: mpgInput,
         geolocation: {
-              latitude: geolocation.latitude,
-            longitude: geolocation.longitude
+              latitude: la,
+            longitude: lo
         }
     }
-    return this.http.post<Product[]>(this.baseUrl + '/listGeo', body);
+
+    const httpOptions2 = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Accept': 'application/json'
+      })
+    }
+    return this.http.post<Product[]>(this.baseUrl + '/listGeo', body, httpOptions2);
   }
 
 }
+
+
+
+
+
+
