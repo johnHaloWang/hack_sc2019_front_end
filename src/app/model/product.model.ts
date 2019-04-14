@@ -2,7 +2,7 @@ import {Geolocation} from "./geolocation.model"
 
 export class Product{
 
-    _id: string;  
+    _id: string;
 	store_id: string;
     price: number;
     gasCost: number;
@@ -13,5 +13,6 @@ export class Product{
     stocked_date: string;
     pictureFileName: string;
     geolocation: Geolocation;
-    creationTime: string
+    creationTime: string;
+    distance: number;
 }

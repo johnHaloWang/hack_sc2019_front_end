@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ProductService } from "./service/product.service";
-import { Product } from "./model/product.model";
-import { Geolocation } from "./model/geolocation.model";
+import { ProductService } from "../service/product.service";
+import { Product } from "../model/product.model";
+import { Geolocation } from "../model/geolocation.model";
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
-export class AppComponent {
+
+export class SearchComponent implements OnInit  {
 	constructor(private formBuilder: FormBuilder, private router: Router, private productService: ProductService){}
   title = 'hackSCApp';
   locationChosen = false;

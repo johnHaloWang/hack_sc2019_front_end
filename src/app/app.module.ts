@@ -24,7 +24,8 @@ import { RegisterComponent } from './register/register.component';
 import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';   // agm-direction
 import {} from 'googlemaps';
-import {} from 'google-distance-matrix' 
+import {} from 'google-distance-matrix';
+import { SearchComponent } from './search/search.component' 
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {} from 'google-distance-matrix'
     LoginComponent,
     ListStoresComponent,
     ProductDashboardComponent,
-    RegisterComponent
+    RegisterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
