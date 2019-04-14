@@ -19,6 +19,7 @@ import { ListStoresComponent } from './list-stores/list-stores.component';
 import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
 import { RegisterComponent } from './register/register.component';
 import { EditStoreComponent } from './edit-store/edit-store.component';
+import { SearchComponent } from './search/search.component';
 
 
 // map import
@@ -26,7 +27,6 @@ import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';   // agm-direction
 import {} from 'googlemaps';
 import {} from 'google-distance-matrix';
-import { SearchComponent } from './search/search.component' 
 
 @NgModule({
   declarations: [
@@ -38,11 +38,8 @@ import { SearchComponent } from './search/search.component'
     ListStoresComponent,
     ProductDashboardComponent,
     RegisterComponent,
-<<<<<<< HEAD
+    EditStoreComponent,
     SearchComponent
-=======
-    EditStoreComponent
->>>>>>> df26ace3e79c202508654572451949c002cdf90b
   ],
   imports: [
     BrowserModule,

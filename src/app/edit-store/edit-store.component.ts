@@ -29,7 +29,7 @@ export class EditStoreComponent implements OnInit {
     this.editStoreForm = this.formBuilder.group({
       id: ['', Validators.required],
     });
-    this.storeService.getProductById(storeId)
+    this.storeService.getStoreById(storeId)
       .subscribe( data => {
          this.editStoreForm.setValue(data);
     });

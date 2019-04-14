@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -13,14 +15,10 @@ import { EditStoreComponent } from "./edit-store/edit-store.component";
 import { ProductDashboardComponent} from "./product-dashboard/product-dashboard.component";
 
 import { RegisterComponent} from "./register/register.component";
-<<<<<<< HEAD
-import { AppComponent} from "./app.component";
-import { SearchComponent} from "./search/search.component";
-=======
+import { SearchComponent } from "./search/search.component";
 import { LoginComponent } from "./login/login.component";
 
 
->>>>>>> df26ace3e79c202508654572451949c002cdf90b
 const routes: Routes = [
   { path: 'list-products',                    component: ListProductsComponent},
   { path: 'edit-product',                     component: EditProductComponent},
@@ -29,17 +27,17 @@ const routes: Routes = [
   { path: 'login',		                      component: LoginComponent},
   { path: 'list-stores',		              component: ListStoresComponent},
   { path: 'product-dashboard',		          component: ProductDashboardComponent},
-  { path: 'edit-store',                     component: EditStoreComponent},
+  { path: 'edit-store',                       component: EditStoreComponent},
   { path: 'register',		          		  component: RegisterComponent},
-<<<<<<< HEAD
-  { path: 'home',		          		  	  component: SearchComponent}
-=======
- 
->>>>>>> df26ace3e79c202508654572451949c002cdf90b
+  { path: 'search',                    component: SearchComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes)
+  ],
+   exports: [RouterModule],
+  declarations: []
 })
 export class AppRoutingModule { }
