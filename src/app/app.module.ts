@@ -10,7 +10,10 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { HttpClientModule } from '@angular/common/http'; 
 import { ProductService } from "./service/product.service";
 import { StoreService } from "./service/store.service";
+import { UserService } from "./service/user.service";
 import { AddProductComponent } from './add-product/add-product.component';
+import { LoginComponent } from './login/login.component';
+import { ListStoresComponent } from './list-stores/list-stores.component';
 
 
 @NgModule({
@@ -18,7 +21,9 @@ import { AddProductComponent } from './add-product/add-product.component';
     AppComponent,
     ListProductsComponent,
     EditProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    LoginComponent,
+    ListStoresComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +35,7 @@ import { AddProductComponent } from './add-product/add-product.component';
   providers: [
   	ProductService,
     StoreService,
+    UserService,
   ],
   bootstrap: [AppComponent]
 })
