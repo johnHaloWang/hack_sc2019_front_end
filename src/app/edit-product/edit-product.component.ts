@@ -13,12 +13,14 @@ import { first} from "rxjs/operators";
 export class EditProductComponent implements OnInit {
 
   product: Product;
+  storeName: string;
   editProductForm: FormGroup;
   constructor(private formBuilder: FormBuilder,private router: Router, private productService: ProductService) { }
 
   _id = "";
   ngOnInit() {
-  	this._id = sessionStorage.getItem('_id')
+        this.storeName = sessionStorage.getItem("storeName");
+  	this._id = sessionStorage.getItem('_id');
   	let productId = sessionStorage.getItem("editProductId");
   	if(!productId) {
       alert("Invalid action.")

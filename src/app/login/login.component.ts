@@ -37,7 +37,8 @@ export class LoginComponent implements OnInit {
                 login => {
                     this.userService.getUserByUsername(this.loginForm.controls.username.value).subscribe(data =>{
                       
-                      this.storeService.getStoreById(data.store_id).subscribe(data2 =>{ sessionStorage.setItem("storeName", data2.name)} );
+                      this.storeService.getStoreById(data.store_id).subscribe(data2 =>
+                        { sessionStorage.setItem("storeName", data2.name)} );
                       sessionStorage.setItem("userstore_id", data.store_id);
                       sessionStorage.setItem("user_id", data._id);
                       this.router.navigate(['product-dashboard']);

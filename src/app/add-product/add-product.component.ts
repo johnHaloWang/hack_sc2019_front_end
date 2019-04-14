@@ -23,6 +23,8 @@ export class AddProductComponent implements OnInit {
   product: Product;
   stores: Store[];
   addForm: FormGroup;
+  storeName: string;
+
   lists = [
   			{value: 0, label: "testing"},
   			{value: 1, label: "testing2"},
@@ -32,6 +34,7 @@ export class AddProductComponent implements OnInit {
     //this.username = sessionStorage.getItem('username');
     this.storeService.getStore()
   	.subscribe( data => {
+       this.storeName = sessionStorage.getItem("storeName");
         this.stores = data;
       });
   	// var len = 3

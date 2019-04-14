@@ -29,9 +29,9 @@
     <!-- Logo -->
     <a [routerLink]="'/admin-user'" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>High</b>Five</span>
+      <span class="logo-mini"><b>LocalMarket</b>Love.com</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>High</b>Five</span>
+      <span class="logo-lg"><b>LocalMarket</b>Love.com</span>
     </a>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -63,27 +63,22 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
-          <a [routerLink]="'/admin-user'">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          <a [routerLink]="'/search'">
+            <i class="fa fa-dashboard"></i> <span>Search</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
         </li>
         <li class="treeview">
-          <a [routerLink]="'/list-products'">
+          <a [routerLink]="'/register'">
             <i class="fa fa-user"></i>
-            <span>Manage Products</span>
+            <span>Store Register</span>
           </a>
         </li>
         <li>
-          <a [routerLink]="'/list-workload'">
-            <i class="fa fa-th"></i> <span>Manage Stores</span>
-          </a>
-      </li>
-      <li>
-          <a [routerLink]="''" (click)="onLogout()">
-            <i class="fa fa-sign-out"></i> <span>Logout</span>
+          <a [routerLink]="'/login'">
+            <i class="fa fa-user"></i> <span>Vendor Login</span>
           </a>
       </li>
       </ul>
@@ -100,8 +95,8 @@
         <small>List</small>
       </h1>
     <ol class="breadcrumb">
-        <li><a [routerLink]="'/admin-user'"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a [routerLink]="'/list-products'">Products</a></li>
+        <li><a [routerLink]=""><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a [routerLink]="'/search'">Search</a></li>
       </ol>
     </section>
 
@@ -122,7 +117,7 @@
       <input type="text" class="form-control" formControlName="result" id="result" placeholder="enter your search by product name">
       <input type="text" class="form-control" formControlName="mph" id="result" placeholder="enter your mile per hour m/h">
       <div class="row">
-        <div class="col-xs-4"><button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button></div>
+        <div class="col-xs-4"><button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button></div>
       </div>
     </div>
     </form>
@@ -137,12 +132,11 @@
         </agm-marker>
 
 
-         <!-- <agm-marker
-            *ngFor="let i of data.length;"
-              [latitude] = "data[i].geolocation.latitude"
-              [longitude] = "data[i].geolocation.longitude"
-            *ngIf = "showMultipleMarkers">
-         </agm-marker> -->
+         <agm-marker
+            *ngFor="let DB of DB_GeoList;"
+              [latitude] = DB[0]
+              [longitude] = DB[1]>
+         </agm-marker>
 
 
 
@@ -154,14 +148,7 @@
         </agm-direction>
       </agm-map>
 
-      <h1>currentLat: {{currentLat}}</h1>
-      <h1>currentLong: {{currentLong}}</h1>
-
-      <div *ngIf = "locationChosen">
-        <h1>Store_latitude: {{Store_latitude}}</h1>
-        <h1>Store_longitude: {{Store_longitude}}</h1>
-        <h1>distanceInMiles: {{distanceInMiles}}</h1>
-      </div>
+      
 
       <div class="row">
           <div class="col-xs-12">
@@ -191,7 +178,7 @@
                     <td> {{product.available}} </td>
                     <td> {{product.stocked_date}} </td>
                     <td> {{product.distance}} </td>
-                    <td><button class="btn btn-danger" (click)="editProduct(product)" style="margin-left: 20px;"> Edit</button></td>
+                    <td> {{product.gasCost}} </td>
                     </tr>
 
                   </tbody>
@@ -213,7 +200,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2018 High Five.</strong> All rights
+    <strong>Copyright &copy; 2019 LocalMarketLove.com.</strong> All rights
     reserved.
   </footer>
   <!-- Add the sidebar's background. This div must be placed

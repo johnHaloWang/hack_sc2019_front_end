@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'product-dashboard',		          component: ProductDashboardComponent},
   { path: 'edit-store',                       component: EditStoreComponent},
   { path: 'register',		          		  component: RegisterComponent},
-  { path: 'search',                    component: SearchComponent},
+  { path: '',                    component: SearchComponent},
 ];
 
 @NgModule({

@@ -29,9 +29,9 @@
     <!-- Logo -->
     <a [routerLink]="'/admin-user'" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>High</b>Five</span>
+      <span class="logo-mini"><b>LocalMarket</b>Love.com</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>High</b>Five</span>
+      <span class="logo-lg"><b>LocalMarket</b>Love.com</span>
     </a>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -63,11 +63,8 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
-          <a [routerLink]="'/admin-user'">
+          <a [routerLink]="'/product-dashboard'">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
         </li>
         <li>
@@ -76,9 +73,9 @@
           </a>
 	</li>
          <li class="treeview">
-          <a [routerLink]="'/list-workload'">
+          <a [routerLink]="'/edit-store'">
             <i class="fa fa-search"></i>
-            <span>Manage Stores</span>
+            <span>Update Store</span>
           </a>
         </li>
 	<li>
@@ -96,11 +93,10 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Product
-        <small>Edit</small>
+        {{storeName}}: Manage Products
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/admin-user"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/search"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="/list-products">Products</a></li>
         <li class="active">Edit Product</li>
       </ol>
@@ -110,7 +106,6 @@
     <section class="content">
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Edit Product</h3>
           <div class="box-tools pull-right"></div>
         </div>
         <!-- /.box-header -->
@@ -118,20 +113,20 @@
           <form [formGroup]="editProductForm" (ngSubmit)="onSubmit()">
             <div class="row">
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="_id">ID:</label>
-                  <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                    <input type="text" formControlName="_id" class="form-control" id="_id">
+                <div class="form-group" hidden>
+                  <label for="_id" hidden>ID:</label>
+                  <div class="input-group" hidden>
+                    <div class="input-group-addon" hidden><i class="fa fa-user"></i></div>
+                    <input type="text" formControlName="_id" class="form-control" id="_id" hidden>
                   </div>
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="store_id">store_id:</label>
-                  <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                    <input type="text" formControlName="store_id" class="form-control" id="store_id">
+                <div class="form-group" hidden>
+                  <label for="store_id" hidden>store_id:</label>
+                  <div class="input-group" hidden>
+                    <div class="input-group-addon" hidden><i class="fa fa-user"></i></div>
+                    <input type="text" formControlName="store_id" class="form-control" id="store_id" hidden>
                   </div>
                 </div>
               </div>
@@ -148,9 +143,9 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="creationTime">creationTime:</label>
-                  <input type='text' formControlName='creationTime' id='creationTime'>
+                <div class="form-group" hidden>
+                  <label for="creationTime" hidden>creationTime:</label>
+                  <input type='text' formControlName='creationTime' id='creationTime' hidden>
                 </div>
               </div>
               <div class="col-md-12">
@@ -178,7 +173,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                    <label for="name">name:</label>
+                    <label for="name">Product Name:</label>
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-user"></i>
@@ -189,7 +184,7 @@
              </div>
               <div class="col-md-6">
                 <div class="form-group">
-                    <label for="brand">brand:</label>
+                    <label for="brand">Brand:</label>
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-user"></i>
@@ -201,7 +196,7 @@
              
              <div class="col-md-6">
                 <div class="form-group">
-                  <label for="price">price:</label>
+                  <label for="price">Price:</label>
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-user"></i>
@@ -213,7 +208,7 @@
               </div>
              <div class="col-md-6">
                 <div class="form-group">
-                    <label for="pictureFileName">pictureFileName:</label>
+                    <label for="pictureFileName">Product Picture</label>
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-user"></i>
@@ -222,19 +217,25 @@
                   </div>
                 </div>
              </div>
-             <button class="btn btn-success">Update</button>
             </div>
           </form>
+                <div class="col-md-12
+                " style="text-align: center;">
+             <button class="btn btn-success" >Update</button></div>
         </div>
       </div>
       
     </section>
+    <!-- /.content -->
+  </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2018 High Five.</strong> All rights
+    <strong>Copyright &copy; 2019 LocalMarketLove.com.</strong> All rights
     reserved.
   </footer>
-</div>
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
 </div>
     
 <!-- ./wrapper -->

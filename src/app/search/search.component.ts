@@ -31,9 +31,9 @@ export class SearchComponent implements OnInit  {
   distanceInMiles:any;
   searchForm: FormGroup;
   products:Product[];
-  DB_GeoList:any[];
-  markers:any[];
-  filteredMarkers:any[];
+  DB_GeoList:any[] = [];
+  gasPrice: any;
+  
 
 
   ngOnInit(){
@@ -76,25 +76,21 @@ export class SearchComponent implements OnInit  {
   }
 
   onSubmit(){
+
 	this.productService.listGeo2(this.currentLat,this.currentLong , this.searchForm.controls.result.value, 10.0, this.searchForm.controls.mph.value)
 	.subscribe( data =>
-		       { this.products = data; this.router.navigate(['home']);
+		       { this.products = data; this.router.navigate(['search']);
              const center = new google.maps.LatLng(this.currentLat, this.currentLong);
+             //this.gasPrice = Number(this.productService.getGasPrice(this.currentLat,this.currentLong , this.searchForm.controls.result.value, 10.0, this.searchForm.controls.mph.value));
+             //console.log("...." + this.gasPrice);
+             for (var i in data) {
+                const markerLoc = new google.maps.LatLng(data[i].geolocation.latitude, data[i].geolocation.longitude);
+                data[i].distance = google.maps.geometry.spherical.computeDistanceBetween(markerLoc, center) / 1000 *0.621372;
+                this.DB_GeoList.push([data[i].geolocation.latitude, data[i].geolocation.longitude]);
+                //data[i].gasCost = data[i].distance/this.gasPrice * this.searchForm.controls.mph.value;
 
-                 for (var i in data) {
-                    const markerLoc = new google.maps.LatLng(data[i].geolocation.latitude, data[i].geolocation.longitude);
-
-                    data[i].distance = google.maps.geometry.spherical.computeDistanceBetween(markerLoc, center) / 1000 *0.621372;
-
-                    console.info(data[i].distance);
-
-                   }
-
-                   // this.filteredMarkers = this.markers.filter(data => {
-                   //         const markerLoc = new google.maps.LatLng(data.geolocation.latitude, data.geolocation.longitude);
-                   //  }
-                   //
-                   // this.showMultipleMarkers = true;
+             }
+             
            });
 
 

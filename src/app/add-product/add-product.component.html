@@ -29,9 +29,9 @@
     <!-- Logo -->
     <a [routerLink]="'/admin-user'" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>High</b>Five</span>
+      <span class="logo-mini"><b>LocalMarket</b>Love.com</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>High</b>Five</span>
+      <span class="logo-lg"><b>LocalMarket</b>Love.com</span>
     </a>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -53,22 +53,23 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
-          <a [routerLink]="'//product-dashboard'">
+          <a [routerLink]="'/product-dashboard'">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            
           </a>
         </li>
         <li>
           <a [routerLink]="'/list-products'">
             <i class="fa fa-th"></i> <span>Manage Products</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
 	</li>
          <li class="treeview">
-          <a [routerLink]="'/list-workload'">
+          <a [routerLink]="'/edit-store'">
             <i class="fa fa-search"></i>
-            <span>Manage Stores</span>
+            <span>Update Store</span>
           </a>
         </li>
 	<li>
@@ -86,11 +87,10 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Advanced Form Elements
-        <small>Preview</small>
+        {{ storeName}}: Add New Product
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/admin-user"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/search"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="/list-products">Products</a></li>
         <li class="active">Add New Product</li>
       </ol>
@@ -102,9 +102,9 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Add New Product</h3>
 
           <div class="box-tools pull-right">
+
           </div>
         </div>
         <!-- /.box-header -->
@@ -210,7 +210,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2018 High Five.</strong> All rights
+    <strong>Copyright &copy; 2019 LocalMarketLove.com</strong> All rights
     reserved.
   </footer>
 </div>

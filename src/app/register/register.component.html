@@ -29,9 +29,9 @@
     <!-- Logo -->
     <a [routerLink]="'/admin-user'" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>High</b>Five</span>
+      <span class="logo-mini"><b>LocalMarket</b>Love.com</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>High</b>Five</span>
+      <span class="logo-lg"><b>LocalMarket</b>Love.com</span>
     </a>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -48,44 +48,28 @@
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
-          <a [routerLink]="'/admin-user'">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          <a [routerLink]="'/search'">
+            <i class="fa fa-dashboard"></i> <span>Search</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a [routerLink]="'/register'">
+            <i class="fa fa-user"></i>
+            <span>Store Register</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
         </li>
         <li>
-          <a [routerLink]="'/list-products'">
-            <i class="fa fa-th"></i> <span>Manage Products</span>
+          <a [routerLink]="'/login'">
+            <i class="fa fa-user"></i> <span>Vendor Login</span>
           </a>
-	</li>
-         <li class="treeview">
-          <a [routerLink]="'/list-workload'">
-            <i class="fa fa-search"></i>
-            <span>Manage Stores</span>
-          </a>
-        </li>
-	<li>
-          <a [routerLink]="''" (click)="onLogout()">
-            <i class="fa fa-sign-out"></i> <span>Logout</span>
-          </a>
-	</li>
+      </li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -96,12 +80,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Advanced Form Elements
-        <small>Preview</small>
+        Store Registration
+        <small>Add New Registration</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/admin-user"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="/list-products">Register</a></li>
+        <li><a href="/search"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/register">Store Register</a></li>
         <li class="active">Add New Registration</li>
       </ol>
     </section>
@@ -112,7 +96,6 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Register</h3>
 
           <div class="box-tools pull-right">
           </div>
@@ -127,7 +110,7 @@
                       <label for="username">username:</label>
                       <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                        <input type="text" formControlName="username" id="username">
+                        <input type="text" formControlName="username" class="form-control" id="username">
                       </div>
                 <!-- /.input group -->
                   </div>
@@ -179,7 +162,7 @@
                              <input type="text" class="form-control" formControlName="pictureFileName">
                             </div>
                           </div>
-                          <div class="col-md-6">
+                          <div class="col-md-12">
                             <div class="form-group">
                               <label>Address</label>
                              <input type="text" class="form-control" formControlName="address">
@@ -251,7 +234,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2018 High Five.</strong> All rights
+    <strong>Copyright &copy; 2019 LocalMarketLove.com.</strong> All rights
     reserved.
   </footer>
 </div>

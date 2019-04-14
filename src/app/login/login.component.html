@@ -17,11 +17,11 @@
 <div class="hold-transition login-page" style="font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;">
 <div class="login-box">
   <div class="login-logo">
-    <b>High</b>Five
+    <b>LocalMarket</b>Love.com
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to our Help Desk System</p>
+    <p class="login-box-msg">Sign in to LocalMarketLove</p>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group has-feedback">
@@ -35,7 +35,7 @@
 		  <input type="password" class="form-control" formControlName="password" id="pwd" placeholder="Password">
 		  <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         <div *ngIf="submitted && loginForm.controls.password.errors" class="error">
-          <div *ngIf="loginForm.controls.password.errors.required">Password is required</div>
+          <div *ngIf="loginForm.controls.password.errors.required">Password is required.</div>
         </div>
       </div>
       <div class="row">

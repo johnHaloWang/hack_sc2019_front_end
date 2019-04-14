@@ -13,6 +13,7 @@ import { first} from "rxjs/operators";
 export class EditStoreComponent implements OnInit {
 
   store: Store;
+  storeName: string;
   editStoreForm: FormGroup;
   constructor(private formBuilder: FormBuilder,private router: Router, private storeService: StoreService) { }
 
@@ -20,7 +21,8 @@ export class EditStoreComponent implements OnInit {
 
   ngOnInit() {
   	this._id = sessionStorage.getItem('_id')
-  	let storeId = sessionStorage.getItem("editStoreId");
+    this.storeName = sessionStorage.getItem("storeName");
+    let storeId = sessionStorage.getItem("userstore_id");
   	if(!storeId) {
       alert("Invalid action.")
       this.router.navigate(['list-stores']);
@@ -38,6 +40,7 @@ export class EditStoreComponent implements OnInit {
       {
  
          _id: new FormControl(),
+         // store_id: new FormControl(),
        	 name: new FormControl(),
        	 pictureFileName: new FormControl,
          address: new FormControl(),

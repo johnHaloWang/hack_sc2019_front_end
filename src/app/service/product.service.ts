@@ -121,6 +121,26 @@ export class ProductService {
     return this.http.post<Product[]>(this.baseUrl + '/listGeo', body, httpOptions2);
   }
 
+  getGasPrice(la:number, lo:number, nameInput: string, radiusInput: number, mpgInput: number){
+    let body = {
+        name: nameInput, 
+        radius: radiusInput,
+        mpg: mpgInput,
+        geolocation: {
+              latitude: la,
+            longitude: lo
+        }
+    }
+
+    const httpOptions2 = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Accept': 'application/json'
+      })
+    }
+    return this.http.post(this.baseUrl + '/getGasPrice', body, httpOptions2);
+  }
+
 }
 
 

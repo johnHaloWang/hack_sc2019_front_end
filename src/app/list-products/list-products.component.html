@@ -1,5 +1,5 @@
 <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../assets/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../assets/lib/bower_components/font-awesome/css/font-awesome.css">
   <!-- Ionicons -->
@@ -29,9 +29,9 @@
     <!-- Logo -->
     <a [routerLink]="'/admin-user'" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>High</b>Five</span>
+      <span class="logo-mini"><b>LocalMarket</b>Love.com</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>High</b>Five</span>
+      <span class="logo-lg"><b>LocalMarket</b>Love.com</span>
     </a>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -63,22 +63,22 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
-          <a [routerLink]="'/admin-user'">
+          <a [routerLink]="'/product-dashboard'">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
         </li>
         <li class="treeview">
           <a [routerLink]="'/list-products'">
             <i class="fa fa-user"></i>
             <span>Manage Products</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
         </li>
         <li>
-          <a [routerLink]="'/list-stores'">
-            <i class="fa fa-th"></i> <span>Manage Stores</span>
+          <a [routerLink]="'/edit-store'">
+            <i class="fa fa-th"></i> <span>Update Store</span>
           </a>
 		  </li>
 		  <li>
@@ -96,12 +96,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage Product
-        <small>List</small>
+        {{storeName}}: Manage Products
       </h1>
 		<ol class="breadcrumb">
-        <li><a [routerLink]="'/admin-user'"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a [routerLink]="'/list-products'">Products</a></li>
+        <li><a [routerLink]="'/search'"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a [routerLink]="'/list-products'">Manage Products</a></li>
       </ol>
     </section>
 
@@ -121,7 +120,7 @@
             <div class="icon">
               <i class="ion ion-ios-home"></i>
 			  </div>
-            <a [routerLink]="'/admin-user'" class="small-box-footer">Click here <i class="fa fa-arrow-circle-right"></i></a>
+            <a [routerLink]="'/product-dashboard'" class="small-box-footer">Click here <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -158,7 +157,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Product(s) Details</h3>
+              <h3 class="box-title"><b>Product Details</b></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -166,25 +165,23 @@
                 <thead>
                 <tr>
                   <th class="not-visible" style="text-align: center; display: none;">_id</th>
-                  <th style="text-align: center;">name</th>
-                  <th style="text-align: center;">store_id</th>
-                  <th style="text-align: center;">price</th>
-                  <th style="text-align: center;">available</th>
-                  <th style="text-align: center;">stocked_date</th>
-                  <th style="text-align: center;">Delete</th>
+                  <th style="text-align: center;">Name</th>
+                  <th style="text-align: center;">Price</th>
+                  <th style="text-align: center;">Available</th>
+                  <th style="text-align: center;">Stocked Date</th>
                   <th style="text-align: center;">Edit</th>
+                  <th style="text-align: center;">Delete</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr *ngFor="let product of products">
                   <td class="not-visible" style="display: none;">{{product._id}}</td>
                   <td> {{product.name}} </td>
-                  <td> {{product.store_id}} </td>
-                  <td> {{product.price}} </td>
-                  <td> {{product.available}} </td>
-                  <td> {{product.stocked_date}} </td>
-              		<td><button class="btn btn-danger" (click)="deleteProduct(product)"> Delete</button></td>
-                  <td><button class="btn btn-danger" (click)="editProduct(product)" style="margin-left: 20px;"> Edit</button></td>
+                  <td style="text-align: center;"> ${{product.price}}</td>
+                  <td style="text-align: center;"> {{product.available}} </td>
+                  <td style="text-align: center;"> {{product.stocked_date}} </td>
+              		<td><button class="btn btn-danger" (click)="editProduct(product)" style="text-align: center;"> Edit</button></td>
+                  <td><button class="btn btn-danger" (click)="deleteProduct(product)" style="text-align: center;"> Delete</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -205,7 +202,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2018 High Five.</strong> All rights
+    <strong>Copyright &copy; 2019 LocalMarketLove.com</strong> All rights
     reserved.
   </footer>
   <!-- Add the sidebar's background. This div must be placed

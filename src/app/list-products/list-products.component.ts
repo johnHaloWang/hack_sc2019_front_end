@@ -12,12 +12,14 @@ import { Geolocation } from "../model/geolocation.model";
 })
 export class ListProductsComponent implements OnInit {
   products: Product[];
+  storeName: string;
   constructor(private formBuilder: FormBuilder, private router: Router, private productService: ProductService){}
 
   ngOnInit() {
   	this.productService.getProducts()
   	.subscribe( data => {
         this.products = data;
+        this.storeName = sessionStorage.getItem("storeName");
       });
   }
 
